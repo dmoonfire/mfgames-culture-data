@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<calendar xml:ns="urn:mfgames-culture:calendar:xml:1">
+	<!--
+		Information to identify the calendar. Besides the name, the ID is a URI
+		built like a namespace.
+	-->
+	<id>urn:mfgames-culture:calendar:gregorian</id>
+	<name>Gregorian</name>
+	
+	<!--
+		Limits of the calendar. This includes the start and end times for the
+		calendar, typically based on historical or political reasons. If a JD
+		is given outside of this range, the calendar will not generate or parse
+		the date.
+	-->
+	<julian-ranges>
+		<julian-range start="23498.5" end="99234234.5"/>
+		<julian-range start="99234299.5"/>
+	</julian-ranges>
+	
+	<!--
+		The open period is the outermost cycle or period in the calendar. This 
+		typically is the year (which always increases and doesn't "roll over".
+		There can be one and only one open period which functions as the
+		top-down root for calculating dates.
+	-->
+	<open-period>
+		<!--
+			The name of all periods need to start with an initial cap and they
+			can also have spaces. This will be formatted into
+			language-specific formatting (e.g., DayOfMonth in C#, day_of_month()
+			in Python, getDayOfMonth() in Java).
+		-->
+		<name>Year</name>
+		
+		<!--
+			Optimization points. Calculations for dates use the Julian Date
+			seeds to "get close" to the formatted date. This is used to avoid
+			repetative loops in the code so it is a point of tweaking. These
+			seeds can also be cached in code using the PrecalculateSeed() method.
+			
+			When looking up a date, the highest seed that does not exceed the
+			given JD will be used, then the system will calculate for there. 
+			
+			All seeds must start with the initial state of the closed periods.
+			For example, in the Gregorian calendar, all the seeds must be for
+			January 1 at 00:00:00.000.
+			
+			A seed can appear before the start range of the calendar (see
+			above). This allows for calculations at the initial state while
+			allowing the calendar to start in the "middle".
+		-->
+		<julian-seeds>
+			<!-- January 1, 1582 is 2298883.5 (extraploated) -->
+			<julian-seed julian="2298883.5" value="1582"/>
+			
+			<!-- January 1, 2010 is 2455197.5 -->
+			<julian-seed julian="2455197.5" value="2010"/>
+		</julian-seeds>
+		
+		<!--
+			Variables are ECMA script fragments that are run with a given cycle
+			and are "imported" into calculations for this period and all child
+			periods. This allows for centralization for related calculations.
+		-->
+		<variables>
+			<variable id="isLeapYear">
+				if (period % 4 == 0) return true;
+				return false;
+			</variable>
+		</variables>
+		
+		<!--
+			Length is used to calculate the length of the period, in JD, to
+			determine if more detailed parsing is required. For example, starting
+			at the seed of 1582 but trying to calculate 1600, the framework can
+			use the length to avoid calculating the lengths of all the inner
+			periods just to determine the upper length.
+			
+			Length can be a constant or a ECMA script (ECMA-262) that takes a
+			single parameter called "periodValue". It returns a double which
+			represents the JD for that specific cycle. In addition to the
+			initial value, "julianDate" is also defined. Any variables are also
+			imported.
+			
+			All functions (length, count, start) are virtual functions in ECMA
+			script, so they need to return values.
+		-->
+		<length>
+			if (isLeapYear) return 365;
+			return 364;
+		</length>
+		
+		<!--
+			Lists the closed periods that are directly associated with this
+			period. There can be more than one period underneath this period
+			and each one is calculated independently from the other child
+			periods.
+		-->
+		<inner-periods>
+			<!--
+				For each closed-period tag, the ref attribute points to the
+				name of a closed-period with the name name.
+			-->
+			<inner-period ref="Month">
+				<!--
+					Start element is used to calculate the starting point of
+					the closed period. This can be 0 or 1 based as needed. The
+					number of elements in the period is determined by the
+					count element. This works like the length element including
+					any imported variables for the ECMA script.
+				-->
+				<start>
+					return 1;
+				</start>
+				
+				<!--
+					The count element is calculated (and has the same variables
+					as the length element.
+				-->
+				<count>
+					return 12;
+				</count>
+			</inner-period>
+		</inner-periods>
+	</open-period>
+	
+	<!--
+		Closed Periods are cycles or periods that restart in the framework of
+		another period. Each closed cycle has exactly one parent period, which
+		can be open or closed.
+	-->
+	<closed-periods>
+		<closed-period>
+			<name>Month</name>
+			
+			<variables>
+				<variable id="monthLength">
+					switch (periodValue)
+					{
+						case 1:
+						case 3:
+						case 5:
+						case 7:
+						case 8:
+						case 10:
+						case 12:
+							return 31;
+							
+						case 4:
+						case 6:
+						case 9:
+						case 11:
+							return 30;
+							
+						case 2:
+							if (isLeapYear)
+								return 29;
+							else
+								return 28;
+					}
+				</variable>
+			</variables>
+
+			<!--
+				As with the open periods, this is ECMA script. Any variables that
+				were created for a parent period (Year in this case) will also be
+				included at this level. If there is a duplicate name, the innermost
+				variable or name will replace the outermost. In addition, any
+				calculated value (again, Year) will be imported as a variable of
+				the same name (dayOfMonth, year, etc).
+			-->
+			<length>return monthLength;</length>
+
+			<inner-periods>
+				<inner-period ref="Day of Month">
+					<start>return 1;</start>
+					<count>return monthLength;</count>
+				</inner-period>
+			</inner-periods>
+		</closed-period>
+
+		<closed-period>
+			<name>Day of Month</name>
+			<length>return 1;</length>
+		</closed-period>
+	</closed-periods>
+</calendar>
+
+<!--
+
+BASIC FLOW:
+
+	// 2455197.5 = 2010-01-01 00:00:00
+	double julianDate= 2455197.5;
+	CalendarFactory gregorianFactory =
+		CalendarFactoryFactory.CreateCalendar(inputFile);
+		
+	// Create the standard calendar with lookup fields for C# 2.0 and on.
+	Calendar gregorian = gregorianFactory.Parse(julianDate);
+
+	Assert.AreEqual(2010, gregorian.GetPeriod("Year"));
+	Assert.AreEqual(2010, gregorian["Year"]);
+	Assert.AreEqual(1, gregorian.GetPeriod("Month"));
+	Assert.AreEqual(1, gregorian.GetPeriod("Day of Month"));
+	
+	// Create the standard calendar with an interface.
+	IGregorianCalendar iterfaceGregorian = gregorianFactory.Parse<IGregorianCalendar>(julianDate);
+	
+	Assert.AreEqual(2010, iterfaceGregorian.Year);
+	Assert.AreEqual(1, iterfaceGregorian.Month);
+	Assert.AreEqual(1, iterfaceGregorian.DayOfMonth);
+
+	// Create the calendar for use in C# 4.0.
+	dynamic dynamicGregorian = gregorianFactory.ParseDynamic(julianDate);
+
+	Assert.AreEqual(2010, dynamicGregorian.Year);
+	Assert.AreEqual(1, dynamicGregorian.Month);
+	Assert.AreEqual(1, dynamicGregorian.DayOfMonth);
+	
+	// Parse the string and create the appropriate date.
+	dynamic fromString = gregorianFactory.Parse("2010-01-01 00:00:00");
+-->
+
+<!--
+
+PROJECT LAYOUT
+
+mfgames-culture
+	Contains documentation on the cross-platform stuff.
+mfgames-culture-cil
+	C#/VB.NET specific library.
+mfgames-culture-python
+	Python specific library to use the main one.
+
+-->

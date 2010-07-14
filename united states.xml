@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<culture xml:ns="urn:mfgames-culture:culture:xml:1">
+	<!--
+		Information to identify the culture. Besides the name, the ID is a URI
+		built like a namespace.
+	-->
+	<id>urn:mfgames-culture:culture:united-states</id>
+	<name>United States</name>
+</culture>
