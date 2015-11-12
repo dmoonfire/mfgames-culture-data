@@ -182,7 +182,7 @@
             "type": "repeat"
         }
     ],
-    "id": "gregorian",
+    "id": "calendars/gregorian",
     "julian": -1721059.5,
     "version": "0"
 }

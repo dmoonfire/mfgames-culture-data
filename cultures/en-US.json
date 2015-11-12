@@ -1,5 +1,5 @@
 {
-    "id": "en-US",
+    "id": "cultures/en-US",
     "lookups": {
         "MMM/01": "Jan",
         "MMM/02": "Feb",
@@ -16,7 +16,7 @@
     },
     "temporal": {
         "calendars": [
-            "gregorian"
+            "calendars/gregorian"
         ],
         "formats": {
             "MM/DD/YYYY": [
