@@ -69,7 +69,7 @@
                 {
                     "minDigits": 2,
                     "maxDigits": 2,
-                    "ref": "decadeYear",
+                    "ref": "centuryYear",
                     "parseRef": "year",
                     "parseOffset": 2000
                 }

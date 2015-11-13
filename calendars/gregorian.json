@@ -21,11 +21,18 @@
                 {
                     "cycles": [
                         {
-                            "id": "centuryYear",
+                            "id": "centuryDecade",
                             "operation": "mod",
                             "ref": "decade",
                             "type": "calculate",
                             "value": 10
+                        },
+                        {
+                            "id": "centuryYear",
+                            "operation": "mod",
+                            "ref": "year",
+                            "type": "calculate",
+                            "value": 100
                         }
                     ],
                     "id": "decade",
