@@ -34,7 +34,7 @@ To avoid difficulties, don't create formats that require lookup codes unless the
         }
     }
 
-If an entry needs to be removed, please send an email with proof to [contact@mfgames.com](mailto:contact@mfgames.com) and we'll get it removed. Corrections will be accepted as pull requests.
+If an entry needs to be removed, please create an issue in the [Github repository](https://github.com/dmoonfire/mfgames-culture-data/issues). This will ensure transparency in the process.
 
 # Terminology
 
