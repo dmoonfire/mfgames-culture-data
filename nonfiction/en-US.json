@@ -16,7 +16,8 @@
     },
     "temporal": {
         "calendars": [
-            "nonfiction/gregorian"
+            "nonfiction/gregorian",
+            "nonfiction/duodecimal"
         ],
         "instantFormats": {
             "MM/DD/YYYY": [
