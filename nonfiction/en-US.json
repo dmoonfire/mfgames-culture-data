@@ -18,12 +18,12 @@
         "calendars": [
             "nonfiction/gregorian"
         ],
-        "formats": {
+        "instantFormats": {
             "MM/DD/YYYY": [
                 {
+                    "maxDigits": 2,
                     "maxValue": 11,
                     "minDigits": 2,
-                    "maxDigits": 2,
                     "offset": 1,
                     "ref": "yearMonth"
                 },
@@ -31,8 +31,8 @@
                     "constant": "/"
                 },
                 {
-                    "minDigits": 2,
                     "maxDigits": 2,
+                    "minDigits": 2,
                     "offset": 1,
                     "ref": "monthDay"
                 },
@@ -40,8 +40,8 @@
                     "constant": "/"
                 },
                 {
-                    "minDigits": 4,
                     "maxDigits": 4,
+                    "minDigits": 4,
                     "ref": "year"
                 }
             ],
@@ -58,8 +58,8 @@
                     "constant": " "
                 },
                 {
-                    "minDigits": 2,
                     "maxDigits": 2,
+                    "minDigits": 2,
                     "offset": 1,
                     "ref": "monthDay"
                 },
@@ -67,14 +67,15 @@
                     "constant": ", "
                 },
                 {
-                    "minDigits": 2,
                     "maxDigits": 2,
-                    "ref": "centuryYear",
+                    "minDigits": 2,
+                    "parseOffset": 2000,
                     "parseRef": "year",
-                    "parseOffset": 2000
+                    "ref": "centuryYear"
                 }
             ]
         }
     },
+    "type": "culture",
     "version": 0
 }
