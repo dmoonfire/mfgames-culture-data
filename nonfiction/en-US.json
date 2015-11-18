@@ -1,80 +1,82 @@
 {
-	"id": "nonfiction/en-US",
-	"lookups":
-	{
-		"MMM/01": "Jan",
-		"MMM/02": "Feb",
-		"MMM/03": "Mar",
-		"MMM/04": "Apr",
-		"MMM/05": "May",
-		"MMM/06": "Jun",
-		"MMM/07": "Jul",
-		"MMM/08": "Aug",
-		"MMM/09": "Sep",
-		"MMM/10": "Oct",
-		"MMM/11": "Nov",
-		"MMM/12": "Dec"
-	},
-	"temporal":
-	{
-		"calendars": ["nonfiction/gregorian", "nonfiction/duodecimal"],
-		"instantFormats":
-		{
-			"MM/DD/YYYY": [
-			{
-				"maxDigits": 2,
-				"maxValue": 11,
-				"minDigits": 2,
-				"offset": 1,
-				"ref": "yearMonth"
-			},
-			{
-				"constant": "/"
-			},
-			{
-				"maxDigits": 2,
-				"minDigits": 2,
-				"offset": 1,
-				"ref": "monthDay"
-			},
-			{
-				"constant": "/"
-			},
-			{
-				"maxDigits": 4,
-				"minDigits": 4,
-				"ref": "year"
-			}],
-			"MMM DD, YY": [
-			{
-				"lookup": true,
-				"maxValue": 11,
-				"minDigits": 2,
-				"offset": 1,
-				"prefix": "MMM/",
-				"ref": "yearMonth"
-			},
-			{
-				"constant": " "
-			},
-			{
-				"maxDigits": 2,
-				"minDigits": 2,
-				"offset": 1,
-				"ref": "monthDay"
-			},
-			{
-				"constant": ", "
-			},
-			{
-				"maxDigits": 2,
-				"minDigits": 2,
-				"parseOffset": 2000,
-				"parseRef": "year",
-				"ref": "centuryYear"
-			}]
-		}
-	},
-	"type": "culture",
-	"version": 0
+    "id": "nonfiction/en-US",
+    "lookups": {
+        "MMM/01": "Jan",
+        "MMM/02": "Feb",
+        "MMM/03": "Mar",
+        "MMM/04": "Apr",
+        "MMM/05": "May",
+        "MMM/06": "Jun",
+        "MMM/07": "Jul",
+        "MMM/08": "Aug",
+        "MMM/09": "Sep",
+        "MMM/10": "Oct",
+        "MMM/11": "Nov",
+        "MMM/12": "Dec"
+    },
+    "temporal": {
+        "calendars": [
+            "nonfiction/gregorian",
+            "nonfiction/duodecimal"
+        ],
+        "instantFormats": {
+            "MM/DD/YYYY": [
+                {
+                    "maxDigits": 2,
+                    "maxValue": 11,
+                    "minDigits": 2,
+                    "offset": 1,
+                    "ref": "yearMonth"
+                },
+                {
+                    "constant": "/"
+                },
+                {
+                    "maxDigits": 2,
+                    "minDigits": 2,
+                    "offset": 1,
+                    "ref": "monthDay"
+                },
+                {
+                    "constant": "/"
+                },
+                {
+                    "maxDigits": 4,
+                    "minDigits": 4,
+                    "ref": "year"
+                }
+            ],
+            "MMM DD, YY": [
+                {
+                    "lookup": true,
+                    "maxValue": 11,
+                    "minDigits": 2,
+                    "offset": 1,
+                    "prefix": "MMM/",
+                    "ref": "yearMonth"
+                },
+                {
+                    "constant": " "
+                },
+                {
+                    "maxDigits": 2,
+                    "minDigits": 2,
+                    "offset": 1,
+                    "ref": "monthDay"
+                },
+                {
+                    "constant": ", "
+                },
+                {
+                    "maxDigits": 2,
+                    "minDigits": 2,
+                    "parseOffset": 2000,
+                    "parseRef": "year",
+                    "ref": "centuryYear"
+                }
+            ]
+        }
+    },
+    "type": "culture",
+    "version": 0
 }
