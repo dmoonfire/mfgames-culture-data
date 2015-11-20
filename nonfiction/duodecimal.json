@@ -1,0 +1,68 @@
+{
+    "cycles": [
+        {
+            "id": "dayMinute",
+            "lengths": [
+                {
+                    "count": 1,
+                    "julian": 1.157407e-05
+                }
+            ],
+            "partialDaysOnly": true,
+            "type": "repeat"
+        },
+        {
+            "cycles": [
+                {
+                    "id": "meridiem",
+                    "operation": "div",
+                    "ref": "hour24",
+                    "type": "calculate",
+                    "value": 12
+                },
+                {
+                    "id": "hour12",
+                    "operation": "mod",
+                    "ref": "hour24",
+                    "type": "calculate",
+                    "value": 12
+                },
+                {
+                    "cycles": [
+                        {
+                            "id": "minuteSecond",
+                            "lengths": [
+                                {
+                                    "count": 1,
+                                    "julian": 1.157407e-05
+                                }
+                            ],
+                            "type": "repeat"
+                        }
+                    ],
+                    "id": "hourMinute",
+                    "lengths": [
+                        {
+                            "count": 1,
+                            "julian": 0.00069444444
+                        }
+                    ],
+                    "type": "repeat"
+                }
+            ],
+            "id": "hour24",
+            "lengths": [
+                {
+                    "count": 1,
+                    "julian": 0.04166666666
+                }
+            ],
+            "partialDaysOnly": true,
+            "type": "repeat"
+        }
+    ],
+    "id": "nonfiction/duodecimal",
+    "julian": 0.5,
+    "type": "temporal",
+    "version": 0
+}
