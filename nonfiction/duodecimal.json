@@ -1,17 +1,6 @@
 {
     "cycles": [
         {
-            "id": "dayMinute",
-            "lengths": [
-                {
-                    "count": 1,
-                    "julian": "0.00001157407407407407"
-                }
-            ],
-            "partialDaysOnly": true,
-            "type": "repeat"
-        },
-        {
             "cycles": [
                 {
                     "id": "meridiem",
