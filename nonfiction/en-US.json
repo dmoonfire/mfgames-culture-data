@@ -22,6 +22,7 @@
 		"calendars": ["nonfiction/gregorian", "nonfiction/duodecimal"],
 		"instantFormats":
 		{
+			// This produces a 24-hour timestamp.
 			"YYYY-MM-DD HH:mm:ss": [
 			{
 				"maxDigits": 4,

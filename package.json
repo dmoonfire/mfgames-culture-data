@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/dmoonfire/mfgames-culture-data/issues"
   },
-  "homepage": "https://mfgames.com/mfgames-culture/"
+  "homepage": "https://mfgames.com/mfgames-culture/",
+  "devDependencies": {
+    "strip-json-comments": "^2.0.0"
+  }
 }
