@@ -205,7 +205,7 @@
 			{
 				"maxDigits": 2,
 				"minDigits": 2,
-				"parseOffset": 2000,
+				"default": { "year": 2000 },
 				"parseRef": "year",
 				"ref": "centuryYear"
 			}]
