@@ -1,6 +1,9 @@
 {
     "cycles": [
         {
+            "id": "year",
+            "type": "repeat",
+            "offset": -1721059.5,
             "cycles": [
                 {
                     "cycles": [
@@ -154,7 +157,6 @@
                     "type": "sequence"
                 }
             ],
-            "id": "year",
             "lengths": [
                 {
                     "count": 400,
@@ -185,12 +187,10 @@
                     "count": 1,
                     "julian": 365
                 }
-            ],
-            "type": "repeat"
+            ]
         }
     ],
     "id": "nonfiction/gregorian",
-    "julian": -1721059.5,
     "type": "temporal",
     "version": 0
 }
