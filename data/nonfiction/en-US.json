@@ -1,5 +1,9 @@
 {
+	"version": 0,
 	"id": "nonfiction/en-US",
+	"type": "culture",
+	"description": "Cultural information for United States English.",
+	"keywords": ["nonfiction"],
 	"lookups":
 	{
 		"MMM/01": "Jan",
@@ -210,7 +214,5 @@
 				"ref": "centuryYear"
 			}]
 		}
-	},
-	"type": "culture",
-	"version": 0
+	}
 }
