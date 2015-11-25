@@ -8,10 +8,12 @@ Like most files, the key parts of the JSON file are the `id`, `version`, and `ty
     {
         "version": 0,
         "type": "culture",
-        "id": "source/id"
+        "id": "source/id",
+        "description": "A short sentence to describe the item.",
+        "keywords": ["source", "nonfiction", "fantasy"]
     }
 
-Optionally, a "description" is a one-line sentence of the culture. Typically, this ends with a period.
+Both `description` and `keywords` are optional.
 
 Lookups
 -------
