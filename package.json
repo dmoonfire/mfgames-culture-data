@@ -6,8 +6,8 @@
     "lint": "tslint src/*.ts",
     "prebuild": "npm run lint",
     "build": "cd src && tsc",
-    "prepack": "npm run build",
-    "pack": "bin/prepare-data"
+    "preprepare": "npm run build",
+    "prepare": "bin/prepare-data"
   },
   "repository": {
     "type": "git",
