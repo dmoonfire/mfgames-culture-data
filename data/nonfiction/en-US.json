@@ -1,5 +1,9 @@
 {
+	"version": 0,
 	"id": "nonfiction/en-US",
+	"type": "culture",
+	"description": "Cultural information for United States English.",
+	"keywords": ["nonfiction"],
 	"lookups":
 	{
 		"MMM/01": "Jan",
@@ -22,6 +26,7 @@
 		"calendars": ["nonfiction/gregorian", "nonfiction/duodecimal"],
 		"instantFormats":
 		{
+			// This produces a 24-hour timestamp.
 			"YYYY-MM-DD HH:mm:ss": [
 			{
 				"maxDigits": 4,
@@ -204,12 +209,10 @@
 			{
 				"maxDigits": 2,
 				"minDigits": 2,
-				"parseOffset": 2000,
+				"default": { "year": 2000 },
 				"parseRef": "year",
 				"ref": "centuryYear"
 			}]
 		}
-	},
-	"type": "culture",
-	"version": 0
+	}
 }

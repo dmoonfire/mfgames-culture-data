@@ -1,2 +1,9 @@
-docs/
 *~
+.??*
+*.tgz
+tsd.json
+
+src/
+typings/
+bin/
+lib/

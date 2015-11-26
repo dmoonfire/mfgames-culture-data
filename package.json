@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "description": "JSON data files for various cultures both fictional and reality.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "tslint src/*.ts",
+    "prebuild": "npm run lint",
+    "build": "cd src && tsc",
+    "preprepare": "npm run build",
+    "prepare": "bin/prepare-data"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/dmoonfire/mfgames-culture-data/issues"
   },
-  "homepage": "https://mfgames.com/mfgames-culture/"
+  "main": "lib/init.js",
+  "homepage": "https://mfgames.com/mfgames-culture/",
+  "devDependencies": {
+    "fs-extra": "^0.26.2",
+    "fs-walk": "0.0.1",
+    "strip-json-comments": "^2.0.0",
+    "tslint": "^3.0.0",
+    "typescript": "^1.6.2"
+  }
 }
