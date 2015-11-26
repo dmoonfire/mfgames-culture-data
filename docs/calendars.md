@@ -136,7 +136,9 @@ Examples of this would be the length of a Gregorian year (which has different nu
         ]
     }
 
-While calculating repeat cycles, the *cycle index* is set to zero and then the system loops through the lengths until it finds a valid one that is less than or equal to the remaining JDN. Once it finds that, the cycle index is incremented by the `count` property and the julian value from the length is subtracted from the JDN before it starts again at the first length.
+While calculating repeat cycles, the *cycle index* is set to zero and then the system loops through the lengths until it finds a valid one that is less than or equal to the remaining JDN. Once it finds that, the cycle index is incremented by the `count` property and the `julian` value from the length is subtracted from the JDN before it starts again at the first length.
+
+The `julian` attribute can be a decimal value (`2.34`) or it can be a string version (`'2.34'`). In JSON, a number is only a single precision float which means calculations with large numbers dealin with small values (such as seconds or milliseconds in the Gregorian calendar) get "rounded out". In this library, both the string and single precision values are converted into "big decimals" (arbitrary precision decimals) to ensure even the smallest values are not rounded out.
 
 Working from the bottom, the basic year length is 365 days and increments the cycle index by one and decrements the working JDN by 365. If this was the only length in this cycle, every year would be exactly 365 days.
 
