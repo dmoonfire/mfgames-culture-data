@@ -1,0 +1,64 @@
+{
+	"version": 0,
+	"id": "d-moonfire/fedran/tar",
+	"type": "culture",
+	"description": "Information for Tarsan, a country in Fedran.",
+	"baseline": "1832-01-01 / 2390349.5 => 1.1.1832",
+	"temporal":
+	{
+		"calendars": [
+			"d-moonfire/fedran/tarsan-standard-calendar"
+		],
+		"instantFormats":
+		{
+			"NNNN": [
+				{
+					"maxDigits": 4,
+					"minDigits": 4,
+					"ref": "nanca"
+				}
+			],
+			"DDD..NNNN": [
+				{
+					"maxDigits": 3,
+					"minDigits": 3,
+					"ref": "nancadei"
+				},
+				{
+					"constant": ".."
+				},
+				{
+					"maxDigits": 4,
+					"minDigits": 4,
+					"ref": "nanca"
+				}
+			],
+			"D.M.NNNN TSC": [
+				{
+					"maxDigits": 2,
+					"minDigits": 1,
+					"ref": "mastidei"
+				},
+				{
+					"constant": "."
+				},
+				{
+					"maxDigits": 1,
+					"minDigits": 1,
+					"ref": "nancamasti"
+				},
+				{
+					"constant": "."
+				},
+				{
+					"maxDigits": 4,
+					"minDigits": 4,
+					"ref": "nanca"
+				},
+				{
+					"constant": " TSC"
+				}
+			]
+		}
+	}
+}

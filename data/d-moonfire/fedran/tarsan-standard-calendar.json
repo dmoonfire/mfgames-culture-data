@@ -1,0 +1,120 @@
+{
+	"type": "calendar",
+	"id": "d-moonfire/fedran/mansupi-tachira-ripochya",
+	"cycles": [
+		{
+			"id": "nanca",
+			"type": "repeat",
+			"offset": -1715442.5,
+			"lengths": [
+				{
+					"julian": 268497,
+					"count": 729,
+					"operation": "mod",
+					"ref": "nanca",
+					"value": 729
+				},
+				{
+					"julian": 367,
+					"count": 1,
+					"operation": "mod",
+					"ref": "nanca",
+					"value": 81,
+					"stopIfValid": true
+				},
+				{
+					"julian": 369,
+					"count": 1,
+					"operation": "mod",
+					"ref": "nanca",
+					"value": 3,
+					"stopIfValid": true
+				},
+				{
+					"julian": 368,
+					"count": 1
+				}
+			],
+			"cycles": [
+				{
+					"id": "nancadei",
+					"type": "repeat",
+                    "lengths": [
+                        {
+                            "count": 1,
+                            "julian": 1
+                        }
+					]
+				},
+				{
+					"id": "nancamasti",
+					"type": "sequence",
+                    "lengths": [
+                        {
+                            "count": 1,
+                            "julian": 49
+                        },
+                        {
+                            "count": 1,
+                            "julian": 49
+                        },
+                        {
+                            "count": 1,
+                            "julian": 51
+                        },
+                        {
+                            "count": 1,
+                            "julian": 50
+                        },
+                        {
+                            "count": 1,
+                            "julian": 51
+                        },
+                        {
+                            "count": 1,
+                            "julian": 50
+                        },
+                        {
+                            "count": 1,
+                            "julian": 52
+                        },
+                        {
+                            "count": 1,
+                            "single": [
+                                {
+                                    "julian": 15,
+                                    "operation": "mod",
+                                    "ref": "nanca",
+                                    "value": 81,
+									"stopIfValid": true
+                                },
+                                {
+                                    "julian": 17,
+                                    "operation": "mod",
+                                    "ref": "nanca",
+                                    "value": 3,
+									"stopIfValid": true
+                                },
+                                {
+                                    "julian": 16
+                                }
+                            ]
+                        }
+					],
+                    "cycles": [
+                        {
+                            "id": "mastidei",
+                            "lengths": [
+                                {
+                                    "count": 1,
+                                    "julian": 1
+                                }
+                            ],
+                            "type": "repeat"
+                        }
+                    ]
+				}
+			]
+		}
+	]
+}
