@@ -1,0 +1,67 @@
+{
+	"version": 0,
+	"id": "d-moonfire/fedran/kyo",
+	"type": "culture",
+	"description": "Information for the general Kyōti culture.",
+	"x": "1832-06-15 / 2390349.5 => 1471/1/1",
+	"temporal":
+	{
+		"calendars": [
+			"d-moonfire/fedran/mansupi-tachira-ripochya"
+		],
+		"instantFormats":
+		{
+			"YYYY": [
+				{
+					"maxDigits": 4,
+					"minDigits": 4,
+					"ref": "mochyu"
+				}
+			],
+			"YYYY/OOO": [
+				{
+					"maxDigits": 4,
+					"minDigits": 4,
+					"ref": "mochyu"
+				},
+				{
+					"constant": "/"
+				},
+				{
+					"maxDigits": 3,
+					"minDigits": 3,
+					"ref": "mochyuRote",
+					"offset": 1
+				}
+			],
+			"YYYY/R/O MTR": [
+				{
+					"maxDigits": 4,
+					"minDigits": 4,
+					"ref": "mochyu"
+				},
+				{
+					"constant": "/"
+				},
+				{
+					"maxDigits": 1,
+					"minDigits": 1,
+					"ref": "mochyuRichi",
+					"offset": 1
+				},
+				{
+					"constant": "/"
+				},
+				{
+					"maxDigits": 2,
+					"minDigits": 1,
+					"ref": "richiRote",
+					"offset": 1
+				},
+				{
+					"constant": " MTR"
+				}
+			]
+		}
+	}
+}

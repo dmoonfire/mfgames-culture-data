@@ -1,0 +1,140 @@
+{
+	"type": "calendar",
+	"id": "d-moonfire/fedran/mansupi-tachira-ripochya",
+	"cycles": [
+		{
+			"id": "mochyu",
+			"type": "repeat",
+			"offset": -1848581.5,
+			"lengths": [
+				{
+					"julian": 365,
+					"count": 1,
+					"operation": "mod",
+					"ref": "mochyu",
+					"value": 16
+				},
+				{
+					"julian": 366,
+					"count": 1,
+					"operation": "mod",
+					"ref": "mochyu",
+					"value": 8
+				},
+				{
+					"julian": 367,
+					"count": 1,
+					"operation": "mod",
+					"ref": "mochyu",
+					"value": 4
+				},
+				{
+					"julian": 369,
+					"count": 1
+				}
+			],
+			"cycles": [
+				{
+					"id": "mochyuRote",
+					"type": "repeat",
+                    "lengths": [
+                        {
+                            "count": 1,
+                            "julian": 1
+                        }
+					]
+				},
+                {
+					"id": "mochyuRichi",
+                    "type": "sequence",
+                    "lengths": [
+                        {
+                            "count": 1,
+                            "julian": 46
+                        },
+                        {
+                            "count": 1,
+                            "single": [
+                                {
+                                    "julian": 46,
+                                    "operation": "mod",
+                                    "ref": "mochyu",
+                                    "value": 4
+                                },
+                                {
+                                    "julian": 47
+                                }
+                            ]
+                        },
+                        {
+                            "count": 1,
+                            "julian": 47
+                        },
+                        {
+                            "count": 1,
+                            "single": [
+                                {
+                                    "julian": 43,
+                                    "operation": "mod",
+                                    "ref": "mochyu",
+                                    "value": 8
+                                },
+                                {
+                                    "julian": 44
+                                }
+                            ]
+                        },
+                        {
+                            "count": 1,
+                            "julian": 47
+                        },
+                        {
+                            "count": 1,
+                            "single": [
+                                {
+                                    "julian": 45,
+                                    "operation": "mod",
+                                    "ref": "mochyu",
+                                    "value": 16
+                                },
+                                {
+                                    "julian": 46
+                                }
+                            ]
+                        },
+                        {
+                            "count": 1,
+                            "julian": 45
+                        },
+                        {
+                            "count": 1,
+                            "single": [
+                                {
+                                    "julian": 46,
+                                    "operation": "mod",
+                                    "ref": "mochyu",
+                                    "value": 4
+                                },
+                                {
+                                    "julian": 47
+                                }
+                            ]
+                        }
+                    ],
+                    "cycles": [
+                        {
+                            "id": "richiRote",
+                            "lengths": [
+                                {
+                                    "count": 1,
+                                    "julian": 1
+                                }
+                            ],
+                            "type": "repeat"
+                        }
+                    ]
+                }
+			]
+		}
+	]
+}
