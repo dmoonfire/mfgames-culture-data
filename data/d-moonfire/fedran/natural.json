@@ -1,0 +1,37 @@
+{
+	"version": 0,
+	"id": "d-moonfire/fedran/natural",
+	"type": "culture",
+	"description": "Natural information for Fedran, a steampunk fantasy world.",
+	"lookups":
+	{
+		"Seasons-2/00": "Middle of Winter",
+		"Seasons-2/01": "End of Winter",
+		"Seasons-2/02": "Beginning of Spring",
+		"Seasons-2/03": "Middle of Spring",
+		"Seasons-2/04": "End of Spring",
+		"Seasons-2/05": "Beginning of Summer",
+		"Seasons-2/06": "Middle of Summer",
+		"Seasons-2/07": "End of Summer",
+		"Seasons-2/08": "Beginning of Fall",
+		"Seasons-2/09": "Middle of Fall",
+		"Seasons-2/10": "End of Fall",
+		"Seasons-2/11": "Beginning of Winter"
+	},
+	"temporal":
+	{
+		"calendars": ["d-moonfire/fedran/seasons"],
+		"instantFormats":
+		{
+			"Seasons 2": [
+				{
+					"lookup": true,
+					"maxValue": 11,
+					"minDigits": 2,
+					"prefix": "Seasons-2/",
+					"ref": "season"
+				}
+			]
+		}
+	}
+}

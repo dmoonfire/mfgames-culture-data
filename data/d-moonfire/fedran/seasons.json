@@ -1,0 +1,35 @@
+{
+	"type": "calendar",
+	"id": "d-moonfire/fedran/seasons",
+	"cycles": [
+		{
+			"id": "seasonCount",
+			"type": "repeat",
+            "offset": -1720220.5,
+			"lengths": [
+				{
+					"julian": 36830.87,
+					"count": 1200
+				},
+				{
+					"julian": 368.3087,
+					"count": 12
+				},
+				{
+					"julian": "30.6923916667",
+					"count": 1
+				}
+			],
+			"cycles": [
+				{
+					"id": "season",
+					"type": "calculate",
+                    "operation": "mod",
+                    "ref": "seasonCount",
+                    "type": "calculate",
+                    "value": 12
+				}
+			]
+		}
+	]
+}
